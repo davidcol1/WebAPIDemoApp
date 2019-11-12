@@ -8,6 +8,9 @@ using DemoAPI.Models;
 
 namespace DemoAPI.Controllers
 {
+  /// <summary>
+  /// This is where I give you all the information about my peeps.
+  /// </summary>
   public class PeopleController : ApiController
   {
     List<Person> people = new List<Person>();
@@ -19,6 +22,12 @@ namespace DemoAPI.Controllers
       people.Add(new Person { FirstName = "Bilbo", LastName = "Baggins", Id = 3 });
     }
 
+    /// <summary>
+    /// Gets a list of the first names of all users.
+    /// </summary>
+    /// <param name="userId">The id for this person.</param>
+    /// <param name="age">We want to know how old they are.</param>
+    /// <returns>A list of first names.</returns>
     [Route("api/People/GetFirstNamesParams/{userId:int}/{age:int}")]
     [HttpGet]
     public List<string> GetFirstNamesParams(int userId, int age)
